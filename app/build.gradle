@@ -6,6 +6,15 @@ plugins {
 android {
     compileSdk 31
 
+    signingConfigs {
+        config {
+            keyAlias 'githubAndroid'
+            keyPassword 'Adobe110#'
+            storeFile file('signature.jks')
+            storePassword 'Adobe110#'
+        }
+    }
+
     defaultConfig {
         applicationId "com.example.androidgithubactions"
         minSdk 21
@@ -18,6 +27,7 @@ android {
 
     buildTypes {
         release {
+            signingConfig signingConfigs.config
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
